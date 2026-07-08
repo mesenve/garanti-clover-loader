@@ -16,7 +16,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            gap: 32px;
+            gap: 64px;
             background: #f5f7f6;
             font-family: Arial, sans-serif;
             padding-top: 56px;
@@ -67,7 +67,7 @@
             aspect-ratio: 39 / 59;
         }
 
-        .bloom-loader {
+        .spin-loader {
             position: relative;
             display: grid;
             place-items: center;
@@ -76,95 +76,40 @@
             isolation: isolate;
         }
 
-        .bloom-loader::before {
+        .spin-loader::before {
             content: "";
             position: absolute;
-            width: 54%;
+            width: 88%;
             aspect-ratio: 1;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(72, 182, 82, 0.24), rgba(72, 182, 82, 0));
-            animation: bloom-ring 2s ease-in-out infinite;
+            border: 1px solid rgba(15, 95, 43, 0.18);
+            border-top-color: rgba(72, 182, 82, 0.78);
+            animation: spin-ring 2.4s cubic-bezier(0.55, 0, 0.2, 1) infinite;
             z-index: -1;
         }
 
-        .bloom-loader img {
+        .spin-loader img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             transform-origin: 50% 52%;
-            animation: bloom-clover 2s ease-in-out infinite;
+            animation: clover-spin 2.4s cubic-bezier(0.55, 0, 0.2, 1) infinite;
         }
 
-        .bloom-core {
-            position: absolute;
-            width: 18%;
-            aspect-ratio: 1;
-            border-radius: 50%;
-            background: radial-gradient(circle, #8eea83 0%, #2e9b45 48%, rgba(46, 155, 69, 0) 72%);
-            animation: bloom-core 2s ease-in-out infinite;
+        @keyframes clover-spin {
+            0% { transform: rotate(0deg) scale(0.96); filter: brightness(0.94) saturate(0.95); }
+            32% { transform: rotate(720deg) scale(1.035); filter: brightness(1.16) saturate(1.18); }
+            58% { transform: rotate(900deg) scale(1); filter: brightness(1) saturate(1); }
+            74% { transform: rotate(930deg) scale(1); filter: brightness(1) saturate(1); }
+            100% { transform: rotate(1440deg) scale(0.96); filter: brightness(0.94) saturate(0.95); }
         }
 
-        @keyframes bloom-clover {
-            0%, 8% {
-                opacity: 0;
-                clip-path: circle(0% at 50% 52%);
-                transform: scale(0.58);
-                filter: saturate(0.86) brightness(0.94);
-            }
-            22% {
-                opacity: 1;
-                clip-path: circle(22% at 50% 52%);
-                transform: scale(0.78);
-                filter: saturate(1.08) brightness(1.08);
-            }
-            50% {
-                opacity: 1;
-                clip-path: circle(82% at 50% 52%);
-                transform: scale(1.035);
-                filter: saturate(1.18) brightness(1.1);
-            }
-            72%, 86% {
-                opacity: 1;
-                clip-path: circle(120% at 50% 52%);
-                transform: scale(1);
-                filter: saturate(1) brightness(1);
-            }
-            100% {
-                opacity: 0;
-                clip-path: circle(124% at 50% 52%);
-                transform: scale(0.96);
-                filter: saturate(0.92) brightness(0.96);
-            }
-        }
-
-        @keyframes bloom-core {
-            0%, 10% {
-                opacity: 0;
-                transform: scale(0.24);
-            }
-            18%, 36% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            58%, 100% {
-                opacity: 0;
-                transform: scale(2.2);
-            }
-        }
-
-        @keyframes bloom-ring {
-            0%, 12% {
-                opacity: 0;
-                transform: scale(0.2);
-            }
-            42% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            88%, 100% {
-                opacity: 0;
-                transform: scale(1.7);
-            }
+        @keyframes spin-ring {
+            0% { opacity: 0.36; transform: rotate(0deg) scale(0.9); }
+            32% { opacity: 0.9; transform: rotate(720deg) scale(1.06); }
+            58% { opacity: 0.46; transform: rotate(900deg) scale(1); }
+            74% { opacity: 0.3; transform: rotate(930deg) scale(0.98); }
+            100% { opacity: 0.36; transform: rotate(1440deg) scale(0.9); }
         }
     </style>
 </head>
@@ -180,8 +125,7 @@
             </div>
         </section>
         <section class="panel" id="loading-2" aria-label="Loading 2">
-            <div class="bloom-loader" aria-label="Garanti yonca bloom loading animasyonu">
-                <span class="bloom-core" aria-hidden="true"></span>
+            <div class="spin-loader" aria-label="Garanti yonca spin loading animasyonu">
                 <img src="./loader-4.svg" alt="">
             </div>
         </section>
