@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Garanti Yonca Loader</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            background: #f5f7f6;
+        }
+
+        object {
+            width: 100%;
+            height: 100%;
+        }
+
+        .loader {
+            width: min(40vw, 160px);
+            aspect-ratio: 39 / 59;
+        }
+    </style>
+</head>
+<body>
+    <main class="loader" aria-label="Garanti yonca loading animasyonu">
+        <object type="image/svg+xml" data="./garanti-clover-loader.svg" aria-label="Loading"></object>
+    </main>
+</body>
+</html>
