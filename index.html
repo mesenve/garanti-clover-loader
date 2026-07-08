@@ -78,11 +78,26 @@
         .heartbeat-loader::before {
             content: "";
             position: absolute;
-            width: 76%;
-            aspect-ratio: 1;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(72, 182, 82, 0.1), rgba(72, 182, 82, 0));
+            width: 92%;
+            height: 58%;
+            border-radius: 48% 62% 54% 46%;
+            background:
+                radial-gradient(ellipse at 38% 42%, rgba(142, 234, 131, 0.12), rgba(142, 234, 131, 0) 42%),
+                radial-gradient(ellipse at 62% 56%, rgba(46, 155, 69, 0.1), rgba(46, 155, 69, 0) 50%);
+            filter: blur(7px);
             animation: heartbeat-glow 1.8s ease-in-out infinite;
+        }
+
+        .heartbeat-loader::after {
+            content: "";
+            position: absolute;
+            width: 48%;
+            height: 36%;
+            border-radius: 42% 58% 50% 48%;
+            background: radial-gradient(ellipse, rgba(72, 182, 82, 0.08), rgba(72, 182, 82, 0));
+            filter: blur(5px);
+            transform: rotate(-18deg);
+            animation: heartbeat-glow-soft 1.8s ease-in-out infinite;
         }
 
         .heartbeat-loader img {
@@ -119,23 +134,42 @@
         @keyframes heartbeat-glow {
             0%, 18%, 100% {
                 opacity: 0;
-                transform: scale(0.72);
+                transform: rotate(10deg) scale(0.72);
             }
             28% {
                 opacity: 0.5;
-                transform: scale(1.05);
+                transform: rotate(-6deg) scale(1.05);
             }
             38% {
                 opacity: 0.2;
-                transform: scale(0.9);
+                transform: rotate(4deg) scale(0.9);
             }
             48% {
                 opacity: 0.36;
-                transform: scale(1);
+                transform: rotate(-10deg) scale(1);
             }
             68% {
                 opacity: 0;
-                transform: scale(1.32);
+                transform: rotate(8deg) scale(1.32);
+            }
+        }
+
+        @keyframes heartbeat-glow-soft {
+            0%, 20%, 100% {
+                opacity: 0;
+                transform: translate(-6%, 8%) rotate(-18deg) scale(0.8);
+            }
+            30% {
+                opacity: 0.42;
+                transform: translate(4%, -4%) rotate(14deg) scale(1.15);
+            }
+            50% {
+                opacity: 0.24;
+                transform: translate(-3%, 5%) rotate(-10deg) scale(1);
+            }
+            70% {
+                opacity: 0;
+                transform: translate(5%, -2%) rotate(12deg) scale(1.34);
             }
         }
     </style>
