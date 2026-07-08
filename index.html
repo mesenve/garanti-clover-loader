@@ -15,10 +15,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 32px;
             background: #f5f7f6;
             font-family: Arial, sans-serif;
+            padding-top: 56px;
+            box-sizing: border-box;
         }
 
         object {
@@ -80,8 +82,8 @@
 </head>
 <body>
     <nav class="tabs" aria-label="Loading animasyonlari">
-        <button class="tab" type="button" aria-selected="true" aria-controls="loading-1" data-tab="loading-1">loading-1</button>
-        <button class="tab" type="button" aria-selected="false" aria-controls="loading-2" data-tab="loading-2">loading-2</button>
+        <button class="tab" type="button" aria-selected="true" aria-controls="loading-1" data-tab="loading-1">Loading-1</button>
+        <button class="tab" type="button" aria-selected="false" aria-controls="loading-2" data-tab="loading-2">Loading-2</button>
     </nav>
     <main>
         <section class="panel is-active" id="loading-1" aria-label="Loading 1">
@@ -90,7 +92,7 @@
             </div>
         </section>
         <section class="panel" id="loading-2" aria-label="Loading 2">
-            <div class="placeholder">loading-2</div>
+            <div class="placeholder">Loading-2</div>
         </section>
     </main>
     <script>
